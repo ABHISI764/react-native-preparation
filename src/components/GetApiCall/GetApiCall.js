@@ -1,49 +1,58 @@
-import { View, Text, SafeAreaView, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native';
-import React from 'react';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TouchableOpacity,
+  FlatList,
+  ActivityIndicator,
+} from 'react-native';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchTodos } from '../reduxe/Slice/todo';
 
 const GetApiCall = () => {
-  const dispatch = useDispatch();
-
-  // Access state from Redux store
-  const { data, isLoading, isError } = useSelector((state) => state.todo);
-
-  return (
-    <SafeAreaView style={{ flex: 1, padding: 16 }}>
-      <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 10 }}>Todos List</Text>
-
-      <TouchableOpacity
-        onPress={() => dispatch(fetchTodos())}
-        style={{ backgroundColor: 'red', padding: 16, borderRadius: 8, marginBottom: 20 }}
-      >
-        <Text style={{ color: '#fff', textAlign: 'center' }}>Fetch Data</Text>
-      </TouchableOpacity>
-
-      {isLoading && <ActivityIndicator size="large" color="blue" />}
-
-      {isError && <Text style={{ color: 'red' }}>Something went wrong!</Text>}
-
-      {data && (
+    const dispatch = useDispatch();
+    const { data, isLoading, isError, page } = useSelector(state => state.todo);
+  
+    useEffect(() => {
+      dispatch(fetchTodos({ start: 0, limit: 10 }));
+    }, []);
+  
+    const fetchMoreData = () => {
+      if (!isLoading) {
+        dispatch(fetchTodos({ start: page * 10, limit: 10 }));
+      }
+    };
+  
+    return (
+      <SafeAreaView style={{ flex: 1, padding: 16 }}>
+        {isLoading && page === 0 && <ActivityIndicator size={'large'} color="red" />}
+        {isError && <Text>Something went wrong</Text>}
+  
         <FlatList
           data={data}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => ( 
+          keyExtractor={item => item.id.toString()}
+          renderItem={({ item }) => (
             <View
               style={{
-                backgroundColor: '#eee',
-                padding: 10,
-                marginVertical: 4,
-                borderRadius: 5,
+                width: '90%',
+                alignSelf: 'center',
+                borderColor: 'red',
+                borderWidth: 0.1,
+                shadowColor: 'red',
+                shadowOpacity: 0.5,
+                height: 50,
+                justifyContent: 'center',
               }}
             >
-              <Text style={{ fontWeight: 'bold' }}>{item.title}</Text>
-              <Text>{item.body}</Text>
+              <Text>{item.title}</Text>
             </View>
           )}
+          onEndReached={fetchMoreData}
+          onEndReachedThreshold={0.5}
+          ListFooterComponent={isLoading && <ActivityIndicator size="small" color="blue" />}
         />
-      )}
-    </SafeAreaView>
+      </SafeAreaView>
   );
 };
 

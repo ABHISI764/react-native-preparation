@@ -1,16 +1,18 @@
-import { View, Text } from 'react-native'
+import { SafeAreaView } from 'react-native'
 import React from 'react'
-import { store } from './src/components/reduxe/store'
+import CounterUi from './src/components/reduxe/CounterUi'
+import { store } from './src/components/reduxeNew/store'
 import { Provider } from 'react-redux'
-import GetApiCall from './src/components/GetApiCall/GetApiCall'
-import JavaScriptCompilerForMobile from './src/components/JavaScriptCompilerForMobile/JavaScriptCompilerForMobile'
-
 const App = () => {
+  
+
   return (
-    // <Provider store={store}>
-    //   <GetApiCall />
-    // </Provider>
-      <JavaScriptCompilerForMobile />
+
+    <SafeAreaView>
+      <Provider store={store}>
+      <CounterUi />
+      </Provider>
+    </SafeAreaView>
   )
 }
 

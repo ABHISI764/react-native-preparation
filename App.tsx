@@ -1,13 +1,13 @@
 import { SafeAreaView } from 'react-native';
 import React from 'react';
-import { store } from './src/components/ReduxeApiCallExample/store';
+import { store } from './src/components/RtkQueryExample/store';
 import { Provider } from 'react-redux';
-import UserList from './src/components/ReduxeApiCallExample/UserList';
+import GetDataUI from './src/components/RtkQueryExample/GetDataUI';
 const App = () => {
   return (
     <SafeAreaView>
       <Provider store={store}>
-        <UserList />
+        <GetDataUI />
       </Provider>
     </SafeAreaView>
   );

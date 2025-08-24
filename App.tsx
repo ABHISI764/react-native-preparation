@@ -1,16 +1,19 @@
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
 import React from 'react';
 import { store } from './src/components/RtkQueryExample/store';
 import { Provider } from 'react-redux';
-import GetDataUI from './src/components/RtkQueryExample/GetDataUI';
-import GetApiWithDeleteButton from './src/components/GetApiWithDeleteButton/GetApiWithDeleteButton';
+import AuthDash from './src/components/HireOrderComponent/DashBoard';
+
 const App = () => {
   return (
     <SafeAreaView>
+      <ScrollView>
       <Provider store={store}>
-        <GetApiWithDeleteButton />
-        {/* <GetDataUI /> */}
+        {/* <GetApiWithDeleteButton /> */}
+        {/* <Login /> */}
+       <AuthDash />
       </Provider>
+      </ScrollView>
     </SafeAreaView>
   );
 };

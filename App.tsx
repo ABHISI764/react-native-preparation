@@ -3,6 +3,8 @@ import React from 'react';
 import { store } from './src/components/RtkQueryExample/store';
 import { Provider } from 'react-redux';
 import AuthDash from './src/components/HireOrderComponent/DashBoard';
+import MemoryLeakProblem from './src/components/MemoryLeak/MemoryLeakProblem';
+import MemoryLeakSolution from './src/components/MemoryLeak/MemoryLeakSolution';
 
 const App = () => {
   return (
@@ -11,7 +13,9 @@ const App = () => {
       <Provider store={store}>
         {/* <GetApiWithDeleteButton /> */}
         {/* <Login /> */}
-       <AuthDash />
+       {/* <AuthDash /> */}
+       {/* <MemoryLeakProblem /> */}
+       <MemoryLeakSolution />
       </Provider>
       </ScrollView>
     </SafeAreaView>

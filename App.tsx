@@ -5,17 +5,21 @@ import { Provider } from 'react-redux';
 import AuthDash from './src/components/HireOrderComponent/DashBoard';
 import MemoryLeakProblem from './src/components/MemoryLeak/MemoryLeakProblem';
 import MemoryLeakSolution from './src/components/MemoryLeak/MemoryLeakSolution';
+import Testing from './src/components/Testing/Testing';
+import UseRefExample from './src/components/Hook/UseRef/UseRefExample';
 
 const App = () => {
   return (
     <SafeAreaView>
       <ScrollView>
       <Provider store={store}>
+        {/* <Testing /> */}
+        <UseRefExample />
         {/* <GetApiWithDeleteButton /> */}
         {/* <Login /> */}
        {/* <AuthDash /> */}
        {/* <MemoryLeakProblem /> */}
-       <MemoryLeakSolution />
+       {/* <MemoryLeakSolution /> */}
       </Provider>
       </ScrollView>
     </SafeAreaView>

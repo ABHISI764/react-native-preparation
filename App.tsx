@@ -8,6 +8,7 @@ import MemoryLeakSolution from './src/components/MemoryLeak/MemoryLeakSolution';
 import Testing from './src/components/Testing/Testing';
 import UseRefExample from './src/components/Hook/UseRef/UseRefExample';
 import UseMemoSolutionExample from './src/components/Hook/UseMemo/UseMemoSolutionExample';
+import UseCallBackProblemExample from './src/components/Hook/UseCallback/UseCallBackProblemExample';
 
 const App = () => {
   return (
@@ -16,7 +17,8 @@ const App = () => {
       <Provider store={store}>
         {/* <Testing /> */}
         {/* <UseRefExample /> */}
-        <UseMemoSolutionExample />
+        <UseCallBackProblemExample />
+        {/* <UseMemoSolutionExample /> */}
         {/* <GetApiWithDeleteButton /> */}
         {/* <Login /> */}
        {/* <AuthDash /> */}

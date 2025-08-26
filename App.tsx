@@ -7,6 +7,7 @@ import MemoryLeakProblem from './src/components/MemoryLeak/MemoryLeakProblem';
 import MemoryLeakSolution from './src/components/MemoryLeak/MemoryLeakSolution';
 import Testing from './src/components/Testing/Testing';
 import UseRefExample from './src/components/Hook/UseRef/UseRefExample';
+import UseMemoSolutionExample from './src/components/Hook/UseMemo/UseMemoSolutionExample';
 
 const App = () => {
   return (
@@ -14,7 +15,8 @@ const App = () => {
       <ScrollView>
       <Provider store={store}>
         {/* <Testing /> */}
-        <UseRefExample />
+        {/* <UseRefExample /> */}
+        <UseMemoSolutionExample />
         {/* <GetApiWithDeleteButton /> */}
         {/* <Login /> */}
        {/* <AuthDash /> */}
